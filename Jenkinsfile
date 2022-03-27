@@ -4,10 +4,9 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                checkout scm
-                bat 'docker --version'
+                echo 'Building docker image..'
                 bat 'docker build -t galicia-landing .'
-                echo 'Building..'
+                
             }
         }
         stage('Deploy') {
