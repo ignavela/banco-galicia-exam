@@ -15,7 +15,7 @@ pipeline {
                     bat 'docker stop galicia-container'
                 }
                 echo 'Deploying docker container..'
-                bat 'docker run -p 8082:80 --name galicia-container galicia-landing'            
+                bat 'docker run -d -p 8082:80 --name galicia-container galicia-landing' 
             }
         }
     }
