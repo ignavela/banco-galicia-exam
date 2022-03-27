@@ -10,9 +10,10 @@ pipeline {
         }
         stage('Deploy') {
             steps {
-                echo 'Stopping docker container..'
+                echo 'Stopping and deleting docker container..'
                 catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
                     bat 'docker stop galicia-container'
+                    bat 'docker rm galicia-container'
                 }
                 echo 'Deploying docker container..'
                 bat 'docker run -d -p 8082:80 --name galicia-container galicia-landing' 
