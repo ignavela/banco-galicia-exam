@@ -4,12 +4,8 @@ pipeline {
     stages {
         stage('Build') {
             steps {
+                docker --version
                 echo 'Building..'
-            }
-        }
-        stage('Test') {
-            steps {
-                echo 'Testing..'
             }
         }
         stage('Deploy') {
